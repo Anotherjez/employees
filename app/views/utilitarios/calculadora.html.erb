@@ -1,0 +1,25 @@
+<h2>Calculadora</h2>
+<br>
+<h4>Seleccione un tipo de operacion:</h4>
+<br>
+
+<%= form_for :calculator, url: { action: :calculadora }, method: :get do |f|   %>
+    <%= select_tag :operation, options_for_select([['Suma', :sum], ['Resta', :subtr], ['Multiplicacion', :multp], ['Division', :div]], params[:operation]), class: 'custom-select' %>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col">
+            <label>Primer Numero</label>
+            <%= number_field_tag :a, params[:a], class: 'form-control', step: 'any', :required => true %>
+        </div>
+        
+        <div class="col">
+            <label>Primer Numero</label>
+            <%= number_field_tag :b, params[:b], class: 'form-control', step: 'any', :required => true %>
+        </div>
+    </div>
+    <br>
+  <center><%= f.submit 'Calcular', class: 'btn btn-primary' %></center>
+<% end %>
+
+<% unless @result.nil? %>
+  <center><div class="result"><h1>Resultado: <%= number_with_precision(@result, :precision => 4, :delimiter => ',') %></h1></div></center>
+<% end %>

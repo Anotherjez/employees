@@ -1,0 +1,20 @@
+<h2>Registrar nomina</h2>
+<br>
+
+<%= form_for @nomina, url: nomina_index_path do |form| %>
+
+    <% if @nomina.errors.any? %>
+        <% @nomina.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger" role="alert">
+                <%= msg %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <div class="form-group">
+        <label>Año y mes</label>
+        <input required class="form-control" type="month" id="date" name="date" min="2018-01" value=<%= Time.now.strftime("%Y-%m") %>>
+    </div>
+    
+    <%= form.submit class: 'btn btn-primary', value: 'Crear nomina' %>
+<% end %>

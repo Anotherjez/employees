@@ -1,0 +1,49 @@
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Bienvenido a Recursos humanos</h4>
+  <p>Aqui podras gestionar tus empleados y consultar la nómina.</p>
+  <hr>
+  <p class="mb-0">También incluye herramientas como calculadora, conversor de temperaturas y conversor de monedas.</p>
+</div>
+
+<div class="card-deck">
+  <div class="card">
+    <%= image_tag("empleado.jpg", class: "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Gestionar Empleados</h5>
+      <p class="card-text">Añade, edita o elimina empleados.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Ir a Empleados', empleados_path, class: 'card-link' %>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag("nomina.jpg", class: "card-img-top nomina") %>
+    <div class="card-body">
+      <h5 class="card-title">Nómina</h5>
+      <p class="card-text">Consulta la nómina por mes-año.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Ir a Nomina', nomina_index_path, class: 'card-link' %>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag("numbers.png", class: "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Calculadora</h5>
+      <p class="card-text">Calculos básicos como sumar, restar, multiplicar y dividir.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Ir a Calculadora', calculadora_path, class: 'card-link' %>
+    </div>
+  </div>
+  <div class="card">
+    <%= image_tag("conversor.jpg", class: "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title">Conversor de unidades</h5>
+      <p class="card-text">Convierte unidades de temperaturas Celsius a Fahrenheit y viceversa, también puedes convertir monedas Peso dominicano a Dolares y viceversa.</p>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Ir a Conversor de unidades', conversor_path, class: 'card-link' %>
+    </div>
+  </div>
+</div>

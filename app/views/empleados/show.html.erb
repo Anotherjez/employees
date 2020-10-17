@@ -1,0 +1,18 @@
+<div class="card text-center">
+  <div class="card-header">
+    Empleado
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @employee.name + ' ' + @employee.lastname %></h5>
+    <p class="card-text">Cedula: <%= @employee.cedula %></p>
+    <p class="card-text">Telefono: <%= @employee.phone %></p>
+    <p class="card-text">Email: <%= @employee.email %></p>
+    <p class="card-text">Departamento: <%= @employee.department %></p>
+    <p class="card-text">Cargo: <%= @employee.position %></p>
+    <p class="card-text">Fecha de ingreso: <%= @employee.date_entry.to_formatted_s(:long) %></p>
+    <p class="card-text">Salario: RD$<%= number_with_precision(@employee.salary, :precision => 2, :delimiter => ',') %></p>
+    <%= button_to 'Editar', edit_empleado_path(@employee), method: 'get', class: 'btn btn-outline-primary' %>
+    <br>
+    <%= link_to 'Volver a empleados', empleados_path, class: 'btn btn-outline-secondary' %>
+  </div>
+</div>

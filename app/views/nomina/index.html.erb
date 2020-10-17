@@ -1,0 +1,35 @@
+<div class="row mx-md-n5">
+  <div class="col px-md-5"><h2>Nomina</h2></div>
+  <div class="col px-md-5"></div>
+  <div class="col px-md-5"><%= link_to "Añadir nomina", new_nomina_path, class: 'btn btn-outline-success' %></div>
+</div>
+
+<table class="table" style="margin-top: 20px;">
+  <thead>
+    <tr>
+      <th scope="col">Año</th>
+      <th scope="col">Mes</th>
+      <th scope="col">Monto total</th>
+      <th scope="col">Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nominas.each do |nom| %>
+    <tr>
+      <th><%= nom.age %></th>
+      <td><%= Time.new(2020, nom.month.to_i, 1).strftime("%B") %></td>
+      <td>RD$<%= number_with_precision(nom.total_amount, :precision => 2, :delimiter => ',') %></td>
+      <td>
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group" role="group">
+            <%= button_to 'Editar', edit_nomina_path(nom), method: 'get', class: 'btn btn-outline-warning acciones' %>
+          </div>
+          <div class="btn-group" role="group">
+            <%= button_to 'Eliminar', nomina_path(nom), method: 'delete', data: { confirm: '¿Estas seguro?' }, class: 'btn btn-outline-danger acciones' %>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

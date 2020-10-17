@@ -1,0 +1,20 @@
+<h2>Conversor de unidades</h2>
+<br>
+<h4>Seleccione un tipo de operacion:</h4>
+<br>
+
+<%= form_for :conversor, url: { action: :conversor }, method: :get do |f|   %>
+    <%= react_component("Conversor", prerender: false) %>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col">
+            <label>Valor</label>
+            <%= number_field_tag :a, @value, class: 'form-control', step: 'any', :required => true %>
+        </div>        
+    </div>
+    <br>
+  <center><%= f.submit 'Calcular', class: 'btn btn-primary' %></center>
+<% end %>
+
+<% unless @result.nil? %>
+  <center><div class="result"><h1>Resultado: <%= @result %></h1></div></center>
+<% end %>

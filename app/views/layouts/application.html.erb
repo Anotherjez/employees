@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recursos Humanos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5" id="homeNavBar">
+    <a class="navbar-brand" href="/">Recursos Humanos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Utilitarios
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Calculadora', calculadora_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Conversor de unidades', conversor_path, class: 'dropdown-item' %>
+          </div>
+        </li>
+        <%= link_to 'Empleados', empleados_path, class: 'nav-item nav-link' %>
+        <%= link_to 'Nomina', nomina_index_path, class: 'nav-item nav-link' %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer id="footer" class="footer" style="padding-top: 60px;">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <ul class="list-unstyled list-inline social text-center">
+            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UC0RfXvPGEcMlJouPg6TL-Hg" target="_blank"><i class="ali ali-yt"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/anotherjez/" target="_blank"><i class="ali ali-ig"></i></a></li>
+            <li class="list-inline-item"><a href="https://github.com/Anotherjez" target="_blank"><i class="ali ali-git"></i></a></li>
+          </ul>
+        </div>
+      </div>	
+      <div class="row">
+        <div class="col mx-auto text-center text-white">
+          <p><u><a href="/">Sistema de gestion recursos humanos</a></u> es un proyecto con fines educativos</p>
+          <p class="h6">© Todos los derechos reservados.<a class="text-green ml-2" href="https://www.instagram.com/anotherjez/" target="_blank">Jesus Mercado</a></p>
+        </div>	
+      </div>
+    </div>
+	</footer>
+  </body>
+</html>

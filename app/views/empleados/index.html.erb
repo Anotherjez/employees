@@ -1,0 +1,42 @@
+<div class="row mx-md-n5">
+  <div class="col px-md-5"><h2>Empleados</h2></div>
+  <div class="col px-md-5"></div>
+  <div class="col px-md-5"><%= link_to "Añadir empleado", new_empleado_path, class: 'btn btn-outline-success' %></div>
+</div>
+
+<table class="table" style="margin-top: 20px;">
+  <thead>
+    <tr>
+      <th scope="col">Cedula</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Departamento</th>
+      <th scope="col">Cargo</th>
+      <th scope="col">Salario</th>
+      <th scope="col">Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |emp| %>
+    <tr>
+      <th><%= emp.cedula %></th>
+      <td><%= emp.name + ' ' + emp.lastname %></td>
+      <td><%= emp.department %></td>
+      <td><%= emp.position %></td>
+      <td>RD$<%= number_with_precision(emp.salary, :precision => 2, :delimiter => ',') %></td>
+      <td>
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group" role="group">
+            <%= button_to 'Mostrar', empleado_path(emp), method: 'get', class: 'btn btn-outline-info acciones' %>
+          </div>
+          <div class="btn-group" role="group">
+            <%= button_to 'Editar', edit_empleado_path(emp), method: 'get', class: 'btn btn-outline-warning acciones' %>
+          </div>
+          <div class="btn-group" role="group">
+            <%= button_to 'Eliminar', empleado_path(emp), method: 'delete', data: { confirm: '¿Estas seguro?' }, class: 'btn btn-outline-danger acciones' %>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

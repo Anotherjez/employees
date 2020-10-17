@@ -1,0 +1,2 @@
+module NominaHelper
+end
